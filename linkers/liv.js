@@ -7,7 +7,8 @@ function liv_setup() {
   
     var options = {
       scriptPath : path.join(__dirname, './engine/'),
-      pythonPath : 'C:\\Users\\LEVI\\Anaconda3\\pythonw'
+      // pythonPath : 'C:\\Users\\LEVI\\Anaconda3\\pythonw'
+      pythonPath : 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\Anaconda3_64\\pythonw'
     }
   
     var liv = new python("liv.py", options);
