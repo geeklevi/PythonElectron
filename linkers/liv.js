@@ -13,9 +13,24 @@ function liv_setup() {
   
     var liv = new python("liv.py", options);
   
-    liv.end(function(err, code, message) {
-      document.getElementById("liv-button-setup").value = "EndThis";
-      })
+    // liv.end(function(err, code, message) {
+    //   document.getElementById("liv-button-setup").value = "EndThis";
+    //   })
+    liv.send('hello');
+ 
+    liv.on('message', function (message) {
+      // received a message sent from the Python script (a simple "print" statement)
+      console.log(message);
+    });
+    
+    // end the input stream and allow the process to exit
+    liv.end(function (err,code,signal) {
+      if (err) throw err;
+      console.log('The exit code was: ' + code);
+      console.log('The exit signal was: ' + signal);
+      console.log('finished');
+      console.log('finished');
+    });
   
   }
   
