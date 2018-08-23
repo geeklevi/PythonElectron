@@ -1,0 +1,3 @@
+smua.measure.autozero = 1
+smub.measure.autozero = 1
+waitcomplete()

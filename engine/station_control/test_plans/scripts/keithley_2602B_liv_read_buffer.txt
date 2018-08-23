@@ -1,0 +1,1 @@
+printbuffer(1, 51, smua.nvbuffer1,smua.nvbuffer2,smub.nvbuffer1)
