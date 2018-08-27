@@ -29,6 +29,11 @@ function liv_setup() {
     liv.on('message', function (message) {
       // received a message sent from the Python script (a simple "print" statement)
       console.log(message);
+      var x = JSON.parse(message);
+      var k = Object.keys(x);
+      console.log(k);
+      console.log(x.json);
+      console.log(x["hello"]);
     });
     
     // end the input stream and allow the process to exit

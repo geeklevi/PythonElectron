@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 
-from test_plans import PprTestPlan
+import station_control
 
 if __name__ == '__main__':
     # runliv()
@@ -24,7 +24,7 @@ if __name__ == '__main__':
     # smu2 Channel B is for another current input, share same address with smu1 using node to connect
 
     # osa address()
-    osa_address = "GPIB0::26::INSTR"
+    osa1_address = "GPIB0::26::INSTR"
 
     # data save address
     data_sv_address = r'O:\engineering\TEST\Lihua\2018-07-30 HSTest Data Saving\test_data'
@@ -34,7 +34,7 @@ if __name__ == '__main__':
     print(rm.list_resources())
 
     try:
-        ppr_test = PprTestPlan(smu1 = smu1_address, osa = osa_address, rm = rm)
+        ppr_test = PprTestPlan(smu1 = smu1_address, osa1 = osa1_address, rm = rm)
         # ppr_test = PprTestPlan(rm=rm)
         ppr_test.start(data_sv_address)
     except Exception as e:

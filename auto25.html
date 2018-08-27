@@ -1,0 +1,31 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="linkers/auto25.js"></script>
+  </head>
+  
+  <body>
+    <br>
+    <div class="container">
+      <button class="btn btn-info"><a style="color:white" href="main.html">< Back</a></button>
+      <div class="jumbotron">
+        <h1>Auto25</h1>
+        <form action=""> 
+            SMU Address: <input type="text" name="SmuAddress" value="GPIB0::20::INSTR"><br>
+            OSA Address: <input type="text" name="OsaAddress" value="GPIB0::26::INSTR"><br>
+            <input type="submit" value="Run">
+            </form>
+      </div>
+      <br>
+  
+      <button id="liv-button-setup" class="btn btn-success" onclick="liv_setup()">liv setup</button>
+      <br>
+      <br>
+      <label>Please setup your liv</label>
+      <br>
+      <input type="text" placeholder="Liv Name" id="liv-name"/>
+      <button id="liv-button-start" class="btn btn-warning" onclick="liv_start()">liv start</button>
+  
+    </div>
+  <body>
+  

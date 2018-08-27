@@ -9,20 +9,20 @@ class PprTestPlan(GenericTestPlan):
         # print(args)
         # print(kwargs)
         self.smu1 = Keithley2602B()
-        self.osa = Agilent86140B()
+        self.osa1 = Agilent86140B()
 
         if 'smu1' in kwargs:
             self.smu1.add_address(kwargs['smu1'])
-        if 'osa' in kwargs: 
-            self.osa.add_address(kwargs['osa'])
+        if 'osa1' in kwargs: 
+            self.osa1.add_address(kwargs['osa1'])
         if 'rm' in kwargs:
             self.smu1.add_resource_manager(kwargs['rm'])
-            self.osa.add_resource_manager(kwargs['rm'])
+            self.osa1.add_resource_manager(kwargs['rm'])
             # then open the visa in the file
             
             self.smu1.open_resource()
-            self.osa.open_resource()
+            self.osa1.open_resource()
         print(self.smu1.address)
-        print(self.osa.address)
+        print(self.osa1.address)
 
         self.liv = liv(self.smu1)
