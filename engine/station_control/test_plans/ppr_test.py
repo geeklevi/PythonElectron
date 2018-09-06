@@ -1,7 +1,7 @@
 from .generic_test import GenericTestPlan
 from .instruments import Keithley2602B, Agilent86140B
 from .tests import liv
-
+import time
 class PprTestPlan(GenericTestPlan):
     def __init__(self, *args, **kwargs):
         super().__init__(self, *args, **kwargs)
@@ -24,5 +24,13 @@ class PprTestPlan(GenericTestPlan):
             self.osa1.open_resource()
         print(self.smu1.address)
         print(self.osa1.address)
+        self.smu1.initialization()
+        self.smu1.idendification_query()
+        
+        liv_comment_list = self.read_txt_to_list("keithley_2602B_liv_test.txt", 'keithley2602b')
+        for cmd in liv_comment_list:
+            print(cmd)
+            self.smu1.visa.write(cmd)
+            time.sleep(0.1)
 
         self.liv = liv(self.smu1)

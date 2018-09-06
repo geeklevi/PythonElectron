@@ -20,4 +20,4 @@ class Instrument(object):
 
     def idendification_query(self):
         if self.visa != None:
-            self.visa.write("*IDN?")
+            print(self.visa.query('*IDN?'))

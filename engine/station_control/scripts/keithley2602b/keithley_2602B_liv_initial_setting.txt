@@ -7,12 +7,12 @@ smub.measure.lowrangei = 0.00001
 smua.measure.delay = 0.0002
 smub.measure.delay = 0.0002
 smua.source.autorangei = 1
-smub.source.autorangev = 0
+smub.source.autorangev = 1
 smua.source.delay = 0.000000
 smua.source.func = 0
 smub.source.func = 1
 smua.source.limitv = 5
-smub.source.limiti = 0.1
+smub.source.limiti = 0.05
 --smua.source.offfunc = smua.OUTPUT_DCAMPS this command is not working
 --smub.source.offfunc = smub.OUTPUT_DCVOLTS this command is not working
 --smua.source.offlimitv = 2
@@ -36,8 +36,6 @@ smua.trigger.arm.stimulus = 0
 smub.trigger.arm.stimulus = 0
 smua.trigger.source.stimulus = smub.trigger.MEASURE_COMPLETE_EVENT_ID
 smub.trigger.measure.stimulus = smua.trigger.SOURCE_COMPLETE_EVENT_ID
--- haha
--- haha
 
 smua.nvbuffer1.clearcache()
 smua.nvbuffer2.clearcache()
@@ -46,7 +44,8 @@ smua.source.leveli = 5.0E-5
 smua.source.rangei = 0.100
 smua.source.autorangei = 1
 smua.measure.rangev = 5
-smub.measure.rangei = 0.q752300001
+
+smub.measure.rangei = 0.1
 smub.measure.autorangei = 1
 smua.measure.autozero = 1
 smub.measure.autozero = 1
@@ -62,5 +61,3 @@ waitcomplete()
 delay(0.004)
 smua.source.leveli = 5.0E-5
 format.data = format.ASCII
-
-printbuffer(1, 51, smua.nvbuffer1,smua.nvbuffer2,smub.nvbuffer1)

@@ -7,25 +7,28 @@ import numpy as np
 # foo = importlib.util.module_from_spec(spec)
 # spec.loader.exec_module(foo)
 # foo.MyClass()
-# import os,sys,inspect
-# currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
-# parentdir = os.path.dirname(currentdir)
-# sys.path.insert(0,currentdir)
-# print(currentdir)
-# print(parentdir)
+import os,sys,inspect
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+sys.path.insert(0,currentdir)
+print(currentdir)
+print(parentdir)
 # if __name__ == '__main__':
 #     from O.engineering.TEST.Software.HS.Levi_Hu.MultiProbeTest.PythonElectron.engine.station_control.test_plans import PprTestPlan   # assuming the package is in the current working directory or a subdirectory of PYTHONPATH
 # else:
 #     from .test_plans import PprTestPlan
-import sys
-import os
+# import sys
+# import os
 
-PACKAGE_PARENT = '.'
-SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__))))
-parent_path = os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT))
-print(parent_path)
-sys.path.append(parent_path)
-
+# PACKAGE_PARENT = '.'
+# SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__))))
+# parent_path = os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT))
+# print(parent_path)
+# sys.path.append(parent_path)
+try:
+    sys.path.remove(currentdir)
+except ValueError: # Already removed
+    pass
 from .test_plans import PprTestPlan
 
 
