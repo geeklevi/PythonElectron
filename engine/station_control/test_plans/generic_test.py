@@ -23,7 +23,8 @@ class GenericTestPlan(object):
             with open(os.path.join(folder_path, file_name), 'r') as f:
                 c = f.readlines()
                 c = [l.strip() for l in c]
-                print(c)
+                # print(c)
                 return c
         except Exception as e:
             print(e)
+    

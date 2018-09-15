@@ -2,9 +2,13 @@ import visa
 import time
 import matplotlib.pyplot as plt
 import numpy as np
-import os
+import os, sys, json
 
 from station_control import PprTestPlan
+def read_in():
+    lines = sys.stdin.readlines()
+    # Since our input would only be having one line, parse our JSON data from that
+    return json.loads(lines[0])
 
 if __name__ == '__main__':
     # runliv()
@@ -33,10 +37,26 @@ if __name__ == '__main__':
     rm = visa.ResourceManager()
     print(rm.list_resources())
 
+
     try:
         ppr_test = PprTestPlan(smu1 = smu1_address, osa1 = osa1_address, rm = rm)
         # ppr_test = PprTestPlan(rm=rm)
         ppr_test.start(data_sv_address)
     except Exception as e:
         print(e)
+
+    rm.close()
     
+    i = 0
+    while(True):
+        print(i)
+        lines = sys.stdin.readlines()
+        print(lines)
+        sys.stdout.flush()
+        time.sleep(1)
+        i += 1
+        try:
+            if lines[0] == "whatdoesfoxsay\n":
+                break
+        except Exception as e:
+            print(e)
